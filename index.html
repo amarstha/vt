@@ -144,16 +144,23 @@
 
       noBtnFirst.addEventListener("click", playSadMusic);
       noBtnSecond.addEventListener("click", playSadMusic);
-      
+
       document.addEventListener("DOMContentLoaded", () => {
         const playPromise = happyMusic.play();
 
         if (playPromise !== undefined) {
           playPromise.catch(() => {
             console.log("Autoplay blocked! Waiting for user interaction...");
-            document.addEventListener("click", () => {
-              happyMusic.play();
-            }, { once: true });
+            document.addEventListener(
+              "click",
+              (event) => {
+                // Ensure happy music only plays if "No" was NOT clicked
+                if (!event.target.matches("#no-btn-first, #no-btn-two")) {
+                  happyMusic.play();
+                }
+              },
+              { once: true }
+            );
           });
         }
       });
