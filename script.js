@@ -84,13 +84,13 @@ document.getElementById('yes-btn').addEventListener('click', function() {
       noBtn.remove();
     }
 
-    var noBtn = document.getElementById('wrapper');
+    var noBtn = document.getElementById('wrapper-final');
     if (noBtn) {
       noBtn.remove();
     }
   
     // Remove default image
-    var defaultImage = document.querySelector('.default-image');
+    var defaultImage = document.querySelector('.default-image-final');
     if (defaultImage) {
       defaultImage.style.display = 'none';
     }
@@ -98,12 +98,17 @@ document.getElementById('yes-btn').addEventListener('click', function() {
     // Show yes-image
     var yesImage = document.querySelector('.yes-image');
     if (yesImage) {
-        yesImage.style.display = 'inline-block';
+        yesImage.style.display = 'inline-flex';
+    }
+
+    var yesImage = document.querySelector('.yes-image.right');
+    if (yesImage) {
+        yesImage.style.display = 'inline-flex';
     }
 
     var yesCoupleImage = document.querySelector('.yes-couple-image');
     if (yesCoupleImage) {
-      yesCoupleImage.style.display = 'inline-block';
+      yesCoupleImage.style.display = 'inline-flex';
     }
   
     // Add onclick class to body
@@ -122,4 +127,3 @@ document.getElementById('yes-btn').addEventListener('click', function() {
     }, 3000);
 });
 
-  

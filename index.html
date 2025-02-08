@@ -1,34 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="heart.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="heart.png" />
     <title>Would you like to be my Valentine?</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bellota:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bellota:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body class="">
+  <body>
     <div class="container">
-        <img src="valentines-day.avif" alt="Heart Image" class="default-image">
-        <div class="yes-wrapper">
-            <img src="couple2.png" alt="Love Image" class="yes-couple-image">
-            <img src="lionking-love.png" alt="Love Image" class="yes-image">
+      <audio id="bg-music-happy" loop>
+        <source src="valentine.mp3" type="audio/mpeg" />
+      </audio>
+
+      <audio id="bg-music-sad" loop>
+        <source src="sad-valentine.mp3" type="audio/mpeg" />
+      </audio>
+
+      <div class="step-reject" id="rejectStep" style="display: none">
+        <img src="nosimba.gif" alt="Heart Image" class="defalt-image-simba" />
+        <div class="no-container">
+          <h1>Ohh Nooooo!!</h1>
+          <img src="cry-cute.gif" alt="Heart Image" class="" />
         </div>
+      </div>
+      <div class="step-one" id="oneStep">
+        <img src="balloons.png" alt="Heart Image" class="default-image" />
         <div class="btn-container" id="wrapper">
-            <h1>Would you like to be my Valentine?</h1>
-            <button id="no-btn">No</button>
-            <button id="yes-btn">Yes</button>
+          <h1>
+            I was thinking of getting you some flowers. <br />Would you like
+            that?
+          </h1>
+          <button id="no-btn-first">No</button>
+          <button id="yes-btn-first">Yes</button>
         </div>
+      </div>
+      <div class="step-two" id="twoStep">
+        <img src="sunflowers.png" alt="Heart Image" class="flowers" />
+        <div class="btn-container" id="wrapper">
+          <h1>Yay!! How about some chocolates too?</h1>
+          <button id="no-btn-two">No</button>
+          <button id="yes-btn-two">Yes</button>
+        </div>
+      </div>
+      <div class="step-three" id="threeStep">
+        <img src="kunafa.webp" alt="Heart Image" class="kunafa-image" />
+        <div class="btn-container" id="wrapper">
+          <h1>Yummy !! Can you click next please!!</h1>
+          <button id="yes-btn-next">Next</button>
+        </div>
+      </div>
+      <div class="step-four" id="fourStep">
+        <img src="propose.jpg" alt="Heart Image" class="default-image-final" />
+        <div class="yes-wrapper">
+          <img
+            src="lionking-love.png"
+            alt="Love Image"
+            class="yes-image left"
+          />
+          <img src="together.jpg" alt="Love Image" class="yes-couple-image" />
+          <img
+            src="lionking-love.png"
+            alt="Love Image"
+            class="yes-image right"
+          />
+        </div>
+        <div class="btn-container" id="wrapper-final">
+          <h1>Would you like to be my Valentine?</h1>
+          <button id="no-btn">No</button>
+          <button id="yes-btn">Yes</button>
+        </div>
+      </div>
     </div>
 
     <div id="fireworks"></div>
 
     <script src="script.js"></script>
-</body>
 
+    <script>
+      const noBtnFirst = document.getElementById("no-btn-first");
+      const noBtnSecond = document.getElementById("no-btn-two");
+      const yesBtnFirst = document.getElementById("yes-btn-first");
+      const yesBtnSecond = document.getElementById("yes-btn-two");
+      const yesBtnNext = document.getElementById("yes-btn-next");
+      const rejectStep = document.getElementById("rejectStep");
+      const oneStep = document.getElementById("oneStep");
+      const twoStep = document.getElementById("twoStep");
+      const threeStep = document.getElementById("threeStep");
+      const fourStep = document.getElementById("fourStep");
+
+      const happyMusic = document.getElementById("bg-music-happy");
+      const sadMusic = document.getElementById("bg-music-sad");
+
+      twoStep.style.display = "none";
+      threeStep.style.display = "none";
+      fourStep.style.display = "none";
+
+      noBtnFirst.addEventListener("click", () => {
+        oneStep.style.display = "none";
+        twoStep.style.display = "none";
+        rejectStep.style.display = "block";
+      });
+
+      noBtnSecond.addEventListener("click", () => {
+        oneStep.style.display = "none";
+        twoStep.style.display = "none";
+        rejectStep.style.display = "block";
+      });
+
+      yesBtnFirst.addEventListener("click", () => {
+        rejectStep.style.display = "none";
+        oneStep.style.display = "none";
+        twoStep.style.display = "block";
+      });
+
+      yesBtnSecond.addEventListener("click", () => {
+        rejectStep.style.display = "none";
+        oneStep.style.display = "none";
+        twoStep.style.display = "none";
+        threeStep.style.display = "block";
+      });
+
+      yesBtnNext.addEventListener("click", () => {
+        rejectStep.style.display = "none";
+        oneStep.style.display = "none";
+        twoStep.style.display = "none";
+        threeStep.style.display = "none";
+        fourStep.style.display = "block";
+      });
+
+      function playSadMusic() {
+        happyMusic.pause();
+        happyMusic.currentTime = 0; // Reset happy music
+        sadMusic.play();
+      }
+
+      noBtnFirst.addEventListener("click", playSadMusic);
+      noBtnSecond.addEventListener("click", playSadMusic);
+      
+      document.addEventListener("DOMContentLoaded", () => {
+        const playPromise = happyMusic.play();
+
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            console.log("Autoplay blocked! Waiting for user interaction...");
+            document.addEventListener("click", () => {
+              happyMusic.play();
+            }, { once: true });
+          });
+        }
+      });
+    </script>
+  </body>
 </html>

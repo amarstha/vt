@@ -1,0 +1,214 @@
+/* Existing CSS */
+body {
+  font-family: "Bellota", system-ui;
+  background-color: #d5c4c4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 88vh;
+}
+
+.onclick {
+  background-image: url(tenor.gif);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.yes-image,
+.yes-couple-image {
+  display: none;
+}
+
+.yes-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  margin-left: 5rem;
+}
+
+.yes-wrapper img.yes-couple-image {
+  width: 10rem !important;
+  /* position: relative;
+    top: 1.2rem;
+    left: 2.5rem; */
+  border-radius: 5%;
+}
+
+.yes-wrapper img.yes-image.right {
+  width: 7rem;
+  /* position: relative;
+    top: 1rem; */
+}
+
+.yes-wrapper img.yes-image.left {
+  width: 7rem;
+  /* position: relative;
+    top: 2rem; */
+}
+
+h1 {
+  color: #000;
+}
+
+.container {
+  text-align: center;
+}
+
+.container img {
+  width: 25rem;
+  margin-bottom: 20px;
+}
+
+.flowers {
+  width: 35rem !important;
+  margin-bottom: 20px;
+}
+
+.kunafa-image {
+  width: 25rem !important;
+  margin-bottom: -2rem !important;
+}
+
+.defalt-image-simba {
+  width: 20rem !important;
+}
+
+.no-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.no-container img {
+  width: 4rem;
+  margin: 0;
+}
+
+.btn-container {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-family: "Bellota", system-ui;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: purple;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  margin: 0 20px;
+}
+
+button:hover {
+  background-color: #6a1b9a;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+#fireworks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* New Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes heartBeat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Apply Animations */
+.step-one,
+.step-two,
+.step-three,
+.step-four,
+.step-reject {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.container img {
+  animation: float 3s ease-in-out infinite;
+}
+
+button {
+  animation: pulse 2s infinite;
+}
+
+.yes-wrapper img.yes-image {
+  animation: heartBeat 2s infinite;
+}
+
+.yes-wrapper img.yes-couple-image {
+  animation: bounce 2s infinite;
+}
+
+.no-container img {
+  animation: bounce 2s infinite;
+}
